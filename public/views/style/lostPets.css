@@ -1,0 +1,136 @@
+.lost {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 110px;
+  padding-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 검색 필터 */
+.lost-search__box {
+  padding: 10px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  background-color: antiquewhite;
+  border-radius: 5px;
+}
+
+.lost-search__date,
+.lost-search__place,
+.lost-search__kind-state {
+  margin: 10px;
+}
+
+.lost-search__kind-state {
+  display: flex;
+  justify-content: space-between;
+}
+
+.lost-search input,
+.lost-search select {
+  width: 150px;
+  height: 28px;
+}
+
+.lost-search input {
+  width: 143px;
+}
+
+.lost-search__kind-state select {
+  width: 100px;
+}
+
+.search-btn {
+  width: 60px;
+  height: 30px;
+  font-size: 14px;
+  margin: 5px auto;
+}
+
+.search-btn-container {
+  display: flex;
+}
+
+/* 유기동물 리스트 */
+.lost-content {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  padding-top: 30px;
+  justify-content: center;
+}
+
+.lost-content__item {
+  border: 1px solid gainsboro;
+  border-radius: 10px;
+  margin: 10px;
+}
+
+.lost-content__item a {
+  width: 400px;
+  display: flex;
+  padding: 15px;
+  cursor: pointer;
+}
+
+.lost-content__img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.lost-content__info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10px 15px;
+  font-size: 14px;
+  line-height: 120%;
+}
+
+.lost-content__kind-sex {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.lost-content__special {
+  margin-bottom: 5px;
+}
+
+/* 페이지네이션 */
+.pagination {
+  display: flex;
+  margin-top: 40px;
+}
+
+.page-btn {
+  width: 30px;
+  height: 30px;
+  margin: 0px 2px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.page-btn:hover {
+  color: var(--main-color-orange);
+}
+
+.pagination .active {
+  color: white;
+  background-color: var(--main-color-orange);
+  border-radius: 4px;
+}
+
+@media (max-width: 980px) {
+  .lost {
+    padding-top: 180px;
+  }
+}

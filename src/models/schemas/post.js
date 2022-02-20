@@ -1,6 +1,6 @@
-const { Schema } = require('mongoose');
+const { Schema } = require("mongoose");
 
-const CommentSchema = require('./comment');
+const CommentSchema = require("./comment");
 
 const PostSchema = new Schema(
   {
@@ -14,13 +14,16 @@ const PostSchema = new Schema(
     },
     author: {
       type: Schema.Types.ObjectId,
-      ref: 'User',
+      ref: "User",
       required: true,
       index: true,
     },
+    thumbnail: {
+      type: String,
+    },
     category: {
       type: String,
-      default: '자유',
+      default: "반려 이야기",
     },
     likes: {
       type: Number,
@@ -34,7 +37,7 @@ const PostSchema = new Schema(
   },
   {
     timestamps: true,
-  },
+  }
 );
 
 module.exports = PostSchema;

@@ -1,0 +1,148 @@
+:root {
+  --main-color-orange: #ff9933;
+  --btn-hover-color: #e07e1c;
+  --border-gray: 1px solid #ddd;
+}
+
+.main__container {
+  padding-top: 80px;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+.main__title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px 0 25px 0;
+}
+
+.main__title p {
+  margin-top: 1vh;
+}
+
+.main-content__section {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.main-content__article {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: 1rem;
+  margin-bottom: 1.7rem;
+}
+
+.main-content__img {
+  width: 200px;
+  height: 250px;
+}
+
+.main-content__info {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  line-height: 1.6;
+}
+
+.main-content__title {
+  width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.main__upload {
+  display: flex;
+  flex-direction: row-reverse;
+  margin-right: 2.7rem;
+}
+
+.main__upload-link {
+  width: 73px;
+  height: 36px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: var(--main-color-orange);
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.list-paginator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 23px 0;
+}
+
+.list-paginator__pageBtn {
+  border: none;
+  background-color: transparent;
+  min-width: 26px;
+  margin: 0 2px;
+  padding: 5.5px 12px;
+  box-sizing: border-box;
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1;
+  color: #424242;
+  transition: background-color 0.1s, color 0.1s;
+}
+
+.selected {
+  background-color: var(--main-color-orange);
+  color: #fff;
+  text-decoration: none;
+}
+
+.main__search-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.main__select {
+  width: 94px;
+  height: 30px;
+  padding: 5px;
+}
+
+.search__input {
+  width: 200px;
+  height: 30px;
+  padding: 5px;
+}
+
+.search__button {
+  width: 65px;
+  height: 30px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: var(--main-color-orange);
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.main__search-form *:not(:last-child) {
+  margin-right: 5px;
+}
+
+@media (max-width: 980px) {
+  .main__title {
+    margin-top: 35px;
+  }
+}

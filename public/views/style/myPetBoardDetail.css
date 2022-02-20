@@ -1,0 +1,287 @@
+:root {
+  --main-color-orange: #ff9933;
+  --btn-hover-color: #e07e1c;
+  --border-gray: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+/* 반려 이야기 상세 페이지  */
+.mypet-datail__container {
+  padding-top: 80px;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+.mypet-datail__content {
+  max-width: 780px;
+  padding: 0px 15px;
+  margin: 0px auto;
+  box-sizing: border-box;
+}
+.mypet-datail__title {
+  padding: 50px 0 35px 0;
+}
+
+.mypet-datail__title h1 {
+  font-size: 2rem;
+}
+
+.mypet-datail__profile {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 16px;
+  margin-bottom: 40px;
+}
+
+.profile__info span:first-child {
+  padding-right: 30px;
+}
+
+.mypet-datail__body {
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 16px;
+  margin-bottom: 18px;
+}
+
+.mypet-datail__body p,
+.mypet-datail__body img {
+  margin: 15px 0;
+}
+
+/* 반려 이야기 - 댓글  */
+.comment-feed {
+  margin-bottom: 30px;
+}
+
+.comment-feed__header {
+  color: #424242;
+  margin: 0 0 20px 0;
+  font-size: 18px;
+}
+.comment__item {
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 15px;
+}
+
+.comment__wrap {
+  line-height: 1.5;
+  margin-bottom: 10px;
+  position: relative;
+}
+.comment__author {
+  color: #424242;
+  font-weight: 700;
+  font-size: 15px;
+  margin-bottom: 4px;
+}
+.comment__content {
+  font-size: 15px;
+}
+.comment__data {
+  font-size: 12px;
+  margin-right: 8px;
+  color: #979797;
+}
+
+.comment__link {
+  font-size: 12px;
+  margin-right: 8px;
+  color: #979797;
+}
+
+.comment__tool i {
+  position: absolute;
+  top: 30px;
+  right: 10px;
+  color: #b7b7b7;
+  cursor: pointer;
+}
+
+/* 페이지네이션 */
+.list-paginator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 23px 0;
+}
+
+.list-paginator__pageBtn {
+  border: none;
+  background-color: transparent;
+  min-width: 26px;
+  margin: 0 2px;
+  padding: 5.5px 5px;
+  box-sizing: border-box;
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1;
+  color: #424242;
+  transition: background-color 0.1s, color 0.1s;
+}
+
+.selected {
+  background-color: var(--main-color-orange);
+  color: #fff;
+  text-decoration: none;
+}
+
+.comment-feed__input {
+  border: 1px solid #ddd;
+  padding: 10px 10px 15px 10px;
+  border-radius: 10px;
+}
+
+.comment-feed__textarea {
+  width: 100%;
+  height: 8vh;
+  resize: none;
+  padding: 15px;
+  border: none;
+}
+
+.comment-feed__submit {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 15px;
+}
+
+.comment-feed__button {
+  border: none;
+  min-width: 40px;
+  padding: 8px 10px;
+  border-radius: 4px;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1;
+  color: #424242;
+}
+
+.detail-bottom__button {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.detail-bottom__left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.detail-bottom__update {
+  width: 60px;
+  height: 32px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: var(--main-color-orange);
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  font-size: 15px;
+  margin-right: 5px;
+}
+
+.detail-bottom__delete {
+  width: 60px;
+  height: 32px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: var(--main-color-orange);
+  color: #fff;
+  font-size: 15px;
+}
+
+.detail-bottom__link {
+  width: 90px;
+  height: 32px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: var(--main-color-orange);
+  color: #fff;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 15px;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.display__hidden {
+  display: none;
+}
+
+.reply-list__container {
+  margin-left: 35px;
+  padding-top: 12px;
+}
+
+.reply-list__item {
+  margin: 12px 0 10px 48px;
+  padding: 8px;
+}
+
+.reComment__item:not(:last-child) {
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 15px;
+}
+
+.tool__box {
+  width: 78px;
+  position: absolute;
+  top: 24px;
+  right: 29px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 82px;
+  padding: 10px 0;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 6px;
+  box-shadow: 0 1px 12px 0 rgb(0 0 0 / 6%);
+  background-color: #fff;
+  box-sizing: border-box;
+  color: #000;
+  font-size: 15px;
+}
+
+.tool__list {
+  line-height: 2.3;
+}
+
+.update__cancle {
+  margin-right: 5px;
+}
+
+.reComment-feed__button {
+  border: none;
+  min-width: 40px;
+  padding: 8px 10px;
+  border-radius: 4px;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1;
+  color: #424242;
+}
+
+.mypet-datail__body img {
+  max-width: 780px;
+  max-height: 460px;
+}
+
+@media (max-width: 980px) {
+  .mypet-datail__content {
+    margin-top: 45px;
+  }
+}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link
+      rel="icon"
+      href="https://cdn.discordapp.com/attachments/919476182448226325/923865786643263508/in.png"
+    />
+    <link rel="stylesheet" href="/views/style/reset.css" />
+    <link rel="stylesheet" href="/views/style/index.css" />
+    <link rel="stylesheet" href="/views/style/myPetBoard.css" />
+    <link rel="stylesheet" href="/views/style/myPetBoardDetail.css" />
+  <title>PET</title>
+</head>
+
+<body>
+  <div id="wrap">
+    <header>
+      <nav>
+        <div class="header">
+          <div class="header__left">
+            <div class="header__logo"><a href="/">반려in</a></div>
+            <ul class="header__menu-list">
+              <li><a href="/lostPets">보호중입니다</a></li>
+              <li><a href="/myPetBoard">반려이야기</a></li>
+            </ul>
+          </div>
+          <div class="header__right">
+            <div class="header__my-page">
+              <a href="/myPage">마이페이지</a>
+            </div>
+            <% if(locals.isLogined) {%>
+              <button class="btn header__login-btn" onclick="location.href='/auth/kakao/logout'">
+                로그아웃
+              </button>
+              <%} else {%>
+                <button class="btn header__login-btn" onclick="location.href='/login'">
+                  로그인
+                </button>
+                <%}%>
+          </div>
+      </nav>
+    </header>
+  </div>
+  <script type="module" src="/views/js/petStory/index.js"></script>
+</body>
+
+</html>

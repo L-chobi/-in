@@ -1,0 +1,327 @@
+/* myPage */
+
+main {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+}
+
+#myPage {
+  margin-top: 128px;
+  max-width: 640px;
+  flex-direction: column;
+  align-items: stretch;
+  display: flex;
+}
+
+.myPage__profile {
+  display: grid;
+  grid-template-columns: repeat(4, 160px);
+  grid-template-rows: repeat(4, 40px);
+  grid-template-areas:
+    "pi nickname nickname nickname"
+    "pi nickname nickname nickname"
+    "pi email email email"
+    "pi created_at created_at created_at";
+}
+
+.myPage__profile__image {
+  background-position: center;
+  background-size: cover;
+  display: block;
+  margin: 8px;
+  background-image: url(https://img4.daumcdn.net/thumb/R658x0.q70/?fname=https://t1.daumcdn.net/news/202105/24/holapet/20210524031851701wnid.jpg);
+  border-radius: 50%;
+  box-shadow: 0 0 8px #bdc3c7;
+  grid-area: pi;
+  position: relative;
+}
+
+.myPage__profile__nickname,
+.myPage__profile__email,
+.myPage__profile__createdAt {
+  text-align: right;
+}
+
+.myPage__profile__nickname {
+  grid-area: nickname;
+  color: var(--main-color-orange);
+  font-weight: bold;
+  font-size: 2.4em;
+}
+
+.myPage__profile__email,
+.myPage__profile__createdAt {
+  color: #95a5a6;
+  font-size: 0.8em;
+}
+
+.myPage__profile__email {
+  grid-area: email;
+}
+
+.myPage__profile__createdAt {
+  grid-area: created_at;
+}
+
+.myPage__select {
+  margin: 24px 0 48px;
+}
+
+.myPage__select .list {
+  overflow: hidden;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.myPage__select .list li {
+  margin: 3px;
+}
+
+.myPage__select .list a {
+  display: block;
+  width: 100%;
+  background-color: var(--main-color-orange);
+  padding: 8px 16px;
+  border-radius: 3px;
+  transition: all ease-in 0.1s;
+}
+
+.myPage__select .list li:not(.is__on) .myPage__select__category:hover {
+  font-weight: bold;
+  background-color: var(--btn-hover-color);
+  transform: scale(1.04);
+}
+
+.myPage__select .list a.is__on {
+  background-color: var(--btn-hover-color);
+}
+
+.myPage__select .list li.is__on .myPage__select__category {
+  color: #f1c40f;
+  font-weight: bold;
+}
+
+.myPage__select .list .myPage__select__category {
+  font-size: 16px;
+  color: white;
+}
+
+/* pagination */
+
+.myComment__pages {
+  display: flex;
+  justify-content: center;
+}
+
+.prev,
+.next {
+  cursor: pointer;
+}
+
+.pagination {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.pagination ul {
+  display: flex;
+  background: var(--main-color-orange);
+  padding: 8px;
+  border-radius: 50px;
+}
+
+.pagination li {
+  font-size: 14px;
+  padding: 8px;
+  margin: 8px;
+  cursor: pointer;
+  width: 32px;
+  text-align: center;
+}
+
+.pagination li:hover {
+  background-color: #ecf0f1;
+  border-radius: 50%;
+}
+
+.pagination li.active {
+  text-decoration: underline;
+  pointer-events: none;
+}
+
+.pagination li a {
+  margin: auto;
+}
+/* userInfo */
+
+#userInfo {
+  display: flex;
+  justify-content: center;
+}
+
+.userInfo__modify {
+  max-width: 480px;
+}
+
+.userInfo__modify > * {
+  margin-bottom: 8px;
+}
+
+.userInfo__modify__input {
+  text-align: center;
+  padding: 3px;
+}
+
+.userInfo__modify .btn {
+  width: 100%;
+  height: auto;
+  padding: 4px 16px;
+  font-size: 0.8em;
+  margin-bottom: 8px;
+}
+
+/* 내가 쓴 글 && 내가 쓴 댓글 */
+
+#myPosts,
+#myComments {
+  display: none;
+  flex-direction: column;
+}
+
+.contents > .content:last-child {
+  border-bottom: none;
+}
+.contents > .content:nth-child(2n-1) {
+  background-color: #f1f2f6;
+}
+.contents > .content:nth-child(2n) {
+  background-color: #ecf0f1;
+}
+
+.content {
+  height: 15%;
+  border-bottom: 1px dashed #bdc3c7;
+}
+
+.content__info {
+  display: flex;
+  padding: 8px;
+}
+
+.content__info__link {
+  width: 100%;
+}
+
+.content__info__title,
+.content__info__content {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 70%;
+  color: #2c3e50;
+  margin-bottom: 6px;
+}
+
+.content__info__title {
+	font-weight: bold;
+}
+
+.content__info__content {
+  font-size: 0.9em;
+}
+
+.content__info__regdate {
+  color: #95a5a6;
+  font-size: 0.75em;
+}
+
+/* 내가 쓴 댓글 */
+
+.deleteBox {
+  display: flex;
+  align-items: center;
+}
+
+.deleteBox .btn {
+  width: 72px;
+  height: 24px;
+  font-size: 12px;
+}
+
+/* spinner */
+
+.spinner {
+  width: 104%;
+  height: 104%;
+  background: linear-gradient(to right, var(--main-color-orange), white);
+  position: relative;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  animation-delay: 1s;
+  z-index: -1;
+  margin: -2%;
+  display: none;
+}
+
+.myPage__profile__image:hover > .spinner {
+  display: block;
+}
+
+.spinner::before {
+  content: "";
+  z-index: 1;
+  border-radius: 50%;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(359deg);
+  }
+}
+
+/* 반응형 */
+
+@media (max-width: 768px) {
+  main {
+    padding-top: 15vh;
+  }
+
+  .myPage__profile {
+    display: grid;
+    grid-template-columns: 160px;
+    grid-template-rows: 160px 50px 20px 20px;
+    grid-template-areas:
+      "pi"
+      "nickname"
+      "email"
+      "created_at";
+    margin: auto;
+  }
+
+  .myPage__profile__nickname,
+  .myPage__profile__email,
+  .myPage__profile__createdAt {
+    text-align: center;
+  }
+
+  .myPage__profile__image {
+    margin-bottom: 30px;
+  }
+
+  .myPage__profile__image:hover > .spinner {
+    display: none;
+  }
+}
+
+.content__info__link img {
+  max-width: 100%;
+  max-height: 200px;
+}

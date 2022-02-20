@@ -1,0 +1,101 @@
+main {
+  padding-top: 110px;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+.editor {
+  width: 100%;
+}
+
+.editor-header {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.editor__options {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100px;
+}
+
+.editor__options__title {
+  width: 10%;
+}
+
+.editor__options__title-input {
+  width: 100%;
+  height: 3rem;
+  font-size: 1.2rem;
+  color: var(--main-color-orange);
+}
+
+.editor__options--command-list {
+  display: flex;
+  align-items: center;
+  height: 100px;
+}
+
+.command-list__content {
+  display: flex;
+  width: 100%;
+  height: 5vh;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.command-list__btn {
+  width: 45px;
+  height: 45px;
+  border: none;
+  background-color: white;
+  cursor: pointer;
+}
+.command-list__divider {
+  display: inline-block;
+  height: 13px;
+  width: 1px;
+  margin: 0 20px;
+  background-color: #dadce0;
+}
+
+.command-list__btn--font-black,
+.command-list__btn--font-red,
+.command-list__btn--font-blue {
+  width: 25px;
+  height: 25px;
+  border: none;
+  border-radius: 50%;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.command-list__btn--font-black {
+  background-color: black;
+}
+
+.command-list__btn--font-red {
+  background-color: red;
+}
+
+.command-list__btn--font-blue {
+  background-color: rgb(53, 197, 240);
+}
+
+.command-list__picture > img {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.editor__content {
+  width: 100%;
+  height: 500px;
+}
+
+.editor__content__submit {
+  margin: 50px 0 0 45%;
+}

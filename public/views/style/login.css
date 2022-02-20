@@ -1,0 +1,72 @@
+/* global setting */
+:root {
+  --main-color-orange: #ff9933;
+  --btn-hover-color: #e07e1c;
+  --border-gray: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.login__section {
+  padding-top: 80px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+.login__container {
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.login__content {
+  border: 1px solid #e3e3e3;
+  width: 35rem;
+  height: 27rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.6rem;
+}
+
+.login__header,
+.login-intro {
+  margin-bottom: 3rem;
+}
+
+.login__header {
+  font-size: 2.5rem;
+  color: var(--main-color-orange);
+}
+
+.login-intro {
+  font-size: 1.2rem;
+}
+
+.login__oauth {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.login__method {
+  border: none;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.7rem 3rem;
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.kakao__button {
+  background-color: #FEE500;
+  border-radius: 12px;
+  color: #000000;
+  cursor: pointer;
+}
+
+.login__logo {
+  margin-right: 10px;
+}

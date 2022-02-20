@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link
+      rel="icon"
+      href="https://cdn.discordapp.com/attachments/919476182448226325/923865786643263508/in.png"
+    />
+    <link rel="stylesheet" href="/views/style/reset.css" />
+    <link rel="stylesheet" href="/views/style/index.css" />
+    <link rel="stylesheet" href="/views/style/myPetBoard.css" />
+  <title>PET</title>
+</head>
+
+<body>
+  <div id="wrap">
+    <header>
+      <nav>
+        <div class="header">
+          <div class="header__left">
+            <div class="header__logo"><a href="/">반려in</a></div>
+            <ul class="header__menu-list">
+              <li><a href="/lostPets">보호중입니다</a></li>
+              <li><a href="/myPetBoard">반려이야기</a></li>
+            </ul>
+          </div>
+          <div class="header__right">
+            <div class="header__my-page">
+              <a href="/myPage">마이페이지</a>
+            </div>
+            <% if(locals.isLogined) {%>
+              <button class="btn header__login-btn" onclick="location.href='/auth/kakao/logout'">
+                로그아웃
+              </button>
+              <%} else {%>
+                <button class="btn header__login-btn" onclick="location.href='/login'">
+                  로그인
+                </button>
+                <%}%>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main role="main">
+      <div class="main__container">
+        <div class="main__title">
+          <h1>반려이야기</h1>
+          <p>입양한 반려동물과 함께 하는 일상을 공유해보세요</p>
+        </div>
+        <div class="main__upload">
+          <a class="main__upload-link" onclick="location.href='/myPetBoard/writePage'">글쓰기</a>
+        </div>
+        <section class="main-content__section">
+          <!--스크립트 for문을 이용하여 게시물 생성-->
+          <%for(let i=0; i < locals.posts?.length; i++) {%>
+            <article class="main-content__article">
+              <a href="/myPetBoard/<%=locals.posts[i]._id%>">
+                <div class="main-content__wrap">
+                  <div class="main-content__img-box">
+                    <img class="main-content__img" src=<%=locals.posts[i].thumbnail ? locals.posts[i].thumbnail
+                      : "https://via.placeholder.com/200x250/B2B2B2/FFFFFF/?text=NO%20Image" %> alt="" />
+                  </div>
+                  <div class="main-content__info">
+                    <p class="main-content__title">
+                      <%=locals.posts[i]?.title%>
+                        <!--게시물 제목-->
+                    </p>
+                    <span class="main-content__author">
+                      <%=locals.posts[i].author ? locals.posts[i].author.nickname : '탈퇴한 유저' %>
+                    </span>
+                    <!--작성자-->
+                    <div class="main-content__cnt">
+                      <!--조회수-->
+                      <span>조회수 :
+                        <%=locals.posts[i].views%>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </article>
+            <%}%>
+        </section>
+      </div>
+      <!--페이지네이션 숫자 영역. 임시로 생성-->
+      <ul class="list-paginator">
+        <% for(let i=1; i <=locals.totalPage; i++) { %>
+          <li>
+            <% if(i==locals.page) {%>
+              <a class="list-paginator__pageBtn selected"
+                href="/myPetBoard?page=<%=i%>&perPage=<%=locals.perPage%>&title=<%=locals.title%>&content=<%=locals.content%>&author=<%=locals.author%>">
+                <%= i%>
+                  <%} else {%>
+                    <a class="list-paginator__pageBtn"
+                      href="/myPetBoard?page=<%=i%>&perPage=<%=locals.perPage%>&title=<%=locals.title%>&content=<%=locals.content%>&author=<%=locals.author%>">
+                      <%= i%>
+                        <%}%>
+                    </a>
+          </li>
+          <%}%>
+      </ul>
+      <div class="main__search">
+        <form onsubmit="return false;" class=" main__search-form">
+          <select name="pet-search" id="pet-search" class="main__select">
+            <option value="title">제목</option>
+            <option value="content">내용</option>
+            <option value="author">작성자</option>
+          </select>
+          <input type="text" placeholder="검색" class="search__input">
+          <button type="button" class="search__button">검색</button>
+        </form>
+      </div>
+  </div>
+  </main>
+  </div>
+  <script type="module" src="/views/js/petStory/searchPetStory.js"></script>
+</body>
+
+</html>

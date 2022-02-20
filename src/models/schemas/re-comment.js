@@ -20,6 +20,11 @@ const reCommentSchema = new Schema(
       ref: 'Comment',
       required: true,
     },
+    parentPost: {
+      type: Schema.Types.ObjectId,
+      ref: 'Post',
+      required: true,
+    },
   },
   {
     timestamps: true,

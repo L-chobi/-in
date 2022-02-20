@@ -1,124 +1,151 @@
 const { Post, User } = require('../../../models');
 
+// 근황 게시판 페이지
 const getPosts = async (req, res) => {
-  const page = Number(req.query.page || 1); // url 쿼리에서 page 받기, 기본값 1
-  const perPage = Number(req.query.perPage || 12); // url 쿼리에서 peRage 받기, 기본값 12
-  const [total, posts] = await Promise.all([
-    Post.countDocuments({}),
-    Post.find({})
+  try {
+    const { query } = req;
+
+    const page = Number(query.page || 1); // url 쿼리에서 page 받기, 기본값 1
+    const perPage = Number(query.perPage || 15); // url 쿼리에서 peRage 받기, 기본값 15
+    const title = query.title || '';
+    const content = query.content || '';
+    const author = query.author || '';
+
+    const titleSearch = {
+      title: {
+        $regex: query.title || /^(?![\s\S])/,
+        $options: 'i',
+      },
+    };
+
+    const contentSearch = {
+      content: {
+        $regex: query.content || /^(?![\s\S])/,
+        $options: 'i',
+      },
+    };
+
+    const searchConditions = {
+      $or: [titleSearch, contentSearch],
+    };
+
+    if (!query.title && !query.content) searchConditions.$or = [{}];
+
+    const total = await Post.countDocuments(searchConditions);
+
+    const posts = await Post.find(searchConditions)
+      .lean()
       .sort({ createdAt: -1 })
       .skip(perPage * (page - 1))
       .limit(perPage)
-      .populate('author'),
-  ]);
-  const totalPage = Math.ceil(total / perPage);
+      .populate({
+        path: 'author',
+        select: 'nickname',
+      });
 
-  if (!req.session.kakao) {
-    // 카카오 로그인을 안해서 세션에 없으면 isLogined는 제외하고 렌더링
+    const totalPage = Math.ceil(total / perPage);
+
+    const authors = {
+      posts: null,
+      pages: 0,
+    };
+
+    if (query.author) {
+      const allPosts = await Post.find({})
+        .lean()
+        .sort({ createdAt: -1 })
+        .populate({
+          path: 'author',
+          select: 'nickname',
+        });
+
+      const authorRegex = new RegExp(`${query.author}`, 'gi');
+      const authorsPosts = allPosts.filter((post) => post.author?.nickname.match(authorRegex));
+      authors.posts = authorsPosts.slice((page - 1) * perPage, page * perPage);
+      authors.pages = authorsPosts.length
+        ? Math.ceil(authorsPosts.length / perPage)
+        : 1;
+    }
+
     res.render('myPetBoard.html', {
-      posts,
+      isLogined: req.isLoggedIn,
+      posts: query.author ? authors.posts : posts,
       page,
       perPage,
-      totalPage,
+      totalPage: authors.pages || totalPage,
+      title,
+      content,
+      author,
     });
-  } else {
-    // 카카오 로그인을 해서 세션에 kakao가 존재하면 isLogined까지 렌더링(로그아웃, 로그인 구분)
-    res.render('myPetBoard.html', {
-      isLogined: 'true',
-      posts,
-      page,
-      perPage,
-      totalPage,
-    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).redirect('/myPetBoard');
   }
 };
 
 // 게시물(상세) 페이지
 const getPostDetail = async (req, res) => {
-  const { id } = req.params;
+  try {
+    const { id } = req.params;
 
-  const post = await Post.findOne({ _id: id }).populate('author');
+    const post = await Post.findOne({ _id: id }).populate({
+      path: 'author',
+      select: 'nickname',
+    });
 
-  if (!post) res.status(404).end();
+    if (!post) res.status(404).end();
 
-  if (!req.session.kakao) {
-    // 카카오 로그인을 안해서 세션에 없으면 isLogined는 제외하고 렌더링
-    res.render('myPetBoardDetail.html', { data: post });
-  } else {
-    // 카카오 로그인을 해서 세션에 kakao가 존재하면 isLogined까지 렌더링(로그아웃, 로그인 구분)
+    post.views += 1;
+
+    post.save();
+
     res.render('myPetBoardDetail.html', {
-      isLogined: 'true',
+      isLogined: req.isLoggedIn,
       data: post,
     });
-  }
-};
-
-const createPost = async (req, res) => {
-  const { title, content, category } = req.body;
-
-  try {
-    // 테스트를 위해 유저 데이터를 임시로 특정
-    const user = await User.findOne({ nickname: 'TEST' });
-
-    // 포스트 생성
-    const post = await Post.create({
-      title,
-      content,
-      author: user,
-      category,
-    });
-
-    // 유저 posts에 포스트 추가
-    user.posts.push(post);
-    user.save();
-
-    res.status(201).json(post);
   } catch (error) {
-    res.status(500).send(error);
+    res.status(500).redirect('/');
   }
 };
 
-const deletePost = async (req, res) => {
-  const { id } = req.params;
-
-  // 추후에 요청자와 post 작성자가 일치하는지 검증하는 로직 추가해야 함
-
-  const post = await Post.deleteOne({ _id: id });
-
-  if (!post) res.status(404).end();
-
-  res.send(204);
+const getWritePage = (req, res) => {
+  try {
+    res.render('editorPage.html');
+  } catch (error) {
+    console.log(error);
+    res.status(500).redirect('/');
+  }
 };
 
-const updatePost = async (req, res) => {
-  const { id } = req.params;
+const getUpdatePage = async (req, res) => {
+  try {
+    const {
+      params: { id },
+      session,
+    } = req;
 
-  const { title, content, category } = req.body;
+    const { email } = session.kakao.kakao_account;
 
-  if (!title || !content || !category) {
-    res.status(400).end();
+    const user = await User.findOne({ email });
+
+    const post = await Post.findOne({ _id: id }).populate('author');
+
+    const { author } = post;
+
+    if (user.id !== author.id) return res.status(401).end();
+
+    res.render('editorUpdatePage.html');
+  } catch (error) {
+    if (error.kind === 'ObjectId') {
+      return res.status(400).end();
+    }
+    res.status(500).redirect('/');
   }
-
-  // 추후에 요청자와 post 작성자가 일치하는지 검증하는 로직 추가해야 함
-
-  const post = await Post.updateOne(
-    { _id: id },
-    {
-      title,
-      content,
-      category,
-    },
-  );
-
-  if (!post) res.status(404).end();
-
-  res.json(post);
 };
 
 module.exports = {
   getPosts,
   getPostDetail,
-  createPost,
-  deletePost,
-  updatePost,
+  getWritePage,
+  getUpdatePage,
 };
