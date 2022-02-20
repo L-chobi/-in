@@ -1,0 +1,82 @@
+.lost {
+  width: 1200px;
+  margin: 0 auto;
+  padding-top: 110px;
+  padding-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 유기동물 검색박스 */
+.lost-search__box {
+  padding: 10px 30px;
+  display: flex;
+  flex-direction: column;
+  background-color: antiquewhite;
+  border-radius: 5px;
+}
+
+.lost-search__date,
+.lost-search__place,
+.lost-search__kind {
+  margin: 10px;
+}
+
+.lost-search input,
+.lost-search select {
+  width: 150px;
+  height: 28px;
+}
+
+.lost-search__status {
+  display: inline-block;
+  padding-left: 10px;
+}
+
+.lost-search__status select {
+  width: 108px;
+}
+
+.search-btn {
+  width: 60px;
+  height: 30px;
+  font-size: 14px;
+  margin-left: auto;
+  margin-right: 10px;
+  margin-bottom: 5px;
+}
+
+.search-btn-container {
+  display: flex;
+}
+
+/* 유기동물 리스트 */
+.lost-content {
+  width: 80%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px 0;
+  padding-top: 50px;
+}
+
+.lost-content__item a {
+  width: 350px;
+  display: flex;
+  margin: 0 auto;
+  cursor: pointer;
+}
+
+.lost-content__img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.lost-content__info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px 15px;
+}

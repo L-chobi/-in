@@ -4,7 +4,7 @@
   "description": "- 최종 서비스 명을 위 괄호 부분에 작성하세요. - 최종 서비스의 한 줄 소개를 작성하세요.",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "nodemon src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -14,8 +14,23 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.24.0",
     "body-parser": "^1.19.1",
+    "dotenv": "^10.0.0",
+    "ejs": "^3.1.6",
     "express": "^4.17.1",
-    "morgan": "^1.10.0"
+    "express-session": "^1.17.2",
+    "mongo": "^0.1.0",
+    "mongoose": "^6.1.2",
+    "morgan": "^1.10.0",
+    "nanoid": "^3.1.30",
+    "node-fetch": "^3.1.0",
+    "qs": "^6.10.2"
+  },
+  "devDependencies": {
+    "eslint": "^8.4.1",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.25.3",
+    "nodemon": "^2.0.15"
   }
 }

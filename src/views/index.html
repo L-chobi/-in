@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/style/reset.css" />
+    <link rel="stylesheet" href="/style/index.css" />
+    <title>반려in</title>
+  </head>
+
+  <body>
+    <div id="wrap">
+      <header>
+        <nav>
+          <div class="header">
+            <div class="header__left">
+              <div class="header__logo"><a href="/">반려in</a></div>
+              <ul class="header__menu-list">
+                <li><a href="/lostPets">보호 중입니다</a></li>
+                <li><a href="/myPetBoard">반려 이야기</a></li>
+              </ul>
+            </div>
+            <div class="header__right">
+              <div class="header__my-page">
+                <a href="/myPage">마이페이지</a>
+              </div>
+              <button class="btn header__login-btn">
+                <% if(locals.isLogined) {%>
+                <a href="/auth/kakao/logout">로그아웃</a>
+                <%} else {%>
+                <a href="/login">로그인</a>
+                <%}%>
+              </button>
+            </div>
+          </div>
+        </nav>
+      </header>
+
+      <div class="container">
+        <!-- carousel -->
+        <section class="carousel"></section>
+
+        <!-- news -->
+        <section class="news">
+          <h1 class="news__description">
+            지난 주에는 <br />14마리가 새 가족을 만났습니다! <br />새로운 가족이
+            되어주세요!
+          </h1>
+          <div class="news__statistics"></div>
+        </section>
+
+        <!-- board -->
+        <section class="board">
+          <div class="board__save">
+            <div class="board__titleBox">
+              <h3 class="board__title">보호중입니다</h3>
+              <a class="board__link" href="#">더 보기</a>
+            </div>
+            <div class="board__contentsBox">
+              <div class="board__content">
+                <img
+                  class="board__img"
+                  src="http://www.animal.go.kr/files/shelter/2021/12/20211216161257_s.jpg"
+                  alt=""
+                />
+                <h4 class="content__title">제목</h4>
+              </div>
+              <div class="board__content">
+                <img
+                  class="board__img"
+                  src="http://www.animal.go.kr/files/shelter/2021/12/20211216161257_s.jpg"
+                  alt=""
+                />
+                <h4 class="content__title">제목</h4>
+              </div>
+              <div class="board__content">
+                <img
+                  class="board__img"
+                  src="http://www.animal.go.kr/files/shelter/2021/12/20211216161257_s.jpg"
+                  alt=""
+                />
+                <h4 class="content__title">제목</h4>
+              </div>
+              <div class="board__content">
+                <img
+                  class="board__img"
+                  src="http://www.animal.go.kr/files/shelter/2021/12/20211216161257_s.jpg"
+                  alt=""
+                />
+                <h4 class="content__title">제목</h4>
+              </div>
+              <div class="board__content">
+                <img
+                  class="board__img"
+                  src="http://www.animal.go.kr/files/shelter/2021/12/20211216161257_s.jpg"
+                  alt=""
+                />
+                <h4 class="content__title">제목</h4>
+              </div>
+              <div class="board__content">
+                <img
+                  class="board__img"
+                  src="http://www.animal.go.kr/files/shelter/2021/12/20211216161257_s.jpg"
+                  alt=""
+                />
+                <h4 class="content__title">제목</h4>
+              </div>
+            </div>
+          </div>
+
+          <div class="board__story">
+            <div class="board__titleBox">
+              <h3 class="board__title">반려 이야기</h3>
+              <a class="board__link" href="#">더 보기</a>
+            </div>
+            <div class="board__contentsBox">
+              <div class="board__content">
+                <img
+                  class="board__img"
+                  src="http://www.animal.go.kr/files/shelter/2021/12/20211216161257_s.jpg"
+                  alt=""
+                />
+                <h4 class="content__title">제목</h4>
+              </div>
+              <div class="board__content">
+                <img
+                  class="board__img"
+                  src="http://www.animal.go.kr/files/shelter/2021/12/20211216161257_s.jpg"
+                  alt=""
+                />
+                <h4 class="content__title">제목</h4>
+              </div>
+              <div class="board__content">
+                <img
+                  class="board__img"
+                  src="http://www.animal.go.kr/files/shelter/2021/12/20211216161257_s.jpg"
+                  alt=""
+                />
+                <h4 class="content__title">제목</h4>
+              </div>
+              <div class="board__content">
+                <img
+                  class="board__img"
+                  src="http://www.animal.go.kr/files/shelter/2021/12/20211216161257_s.jpg"
+                  alt=""
+                />
+                <h4 class="content__title">제목</h4>
+              </div>
+              <div class="board__content">
+                <img
+                  class="board__img"
+                  src="http://www.animal.go.kr/files/shelter/2021/12/20211216161257_s.jpg"
+                  alt=""
+                />
+                <h4 class="content__title">제목</h4>
+              </div>
+              <div class="board__content">
+                <img
+                  class="board__img"
+                  src="http://www.animal.go.kr/files/shelter/2021/12/20211216161257_s.jpg"
+                  alt=""
+                />
+                <h4 class="content__title">제목</h4>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </body>
+</html>

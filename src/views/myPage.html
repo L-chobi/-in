@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/style/myPage.css" />
+    <link rel="stylesheet" href="/style/index.css" />
+    <link rel="stylesheet" href="/style/myPetBoard.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="header">
+          <div class="header__left">
+            <div class="header__logo"><a href="/">반려in</a></div>
+            <ul class="header__menu-list">
+              <li><a href="/lostPets">보호 중입니다</a></li>
+              <li><a href="/myPetBoard">반려 이야기</a></li>
+            </ul>
+          </div>
+          <div class="header__right">
+            <div class="header__my-page">
+              <a href="/myPage">마이페이지</a>
+            </div>
+            <button class="btn header__login-btn">
+              <a href="/auth/kakao/logout">로그아웃</a>
+            </button>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container">
+      <section id="myPage">
+        <h1 class="myPage__title">마이페이지</h1>
+
+        <div class="myPage__select">
+          <h2 class="myPage__select__category">회원정보 수정</h2>
+          <h2 class="myPage__select__category">내가 쓴 글</h2>
+          <h2 class="myPage__select__category">내가 쓴 댓글</h2>
+        </div>
+
+        <!-- 회원정보 수정 -->
+        <section id="userInfo">
+          <div class="userInfo__modify">
+            <h4 class="userInfo__modify__name">별명</h4>
+            <input
+              class="userInfo__modify__input"
+              type="text"
+              placeholder="바꿀 닉네임을 입력하세요"
+            />
+            <button id="userInfo__modify__btn" class="btn" type="submit">
+              수정
+            </button>
+          </div>
+          <button id="userInfo__exit" class="btn">회원 탈퇴</button>
+        </section>
+
+        <!-- 내가 쓴 글 -->
+        <section id="myPosts">
+          <div class="main__container">
+            <section class="main-content__section"></section>
+          </div>
+        </section>
+        <script src="./js/myPosts.js"></script>
+
+        <!-- 내가 쓴 댓글 -->
+        <section id="myComments">
+          <div class="comments">
+            <section class="comments__list"></section>
+          </div>
+        </section>
+        <script src="./js/myComments.js"></script>
+      </section>
+    </div>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/style/reset.css" />
+    <link rel="stylesheet" href="/style/index.css" />
+    <link rel="stylesheet" href="/style/myPetBoard.css" />
+    <title>PET</title>
+  </head>
+
+  <body>
+    <div id="warp">
+      <header>
+        <nav>
+          <div class="header">
+            <div class="header__left">
+              <div class="header__logo"><a href="/">반려in</a></div>
+              <ul class="header__menu-list">
+                <li><a href="/lostPets">보호 중입니다</a></li>
+                <li><a href="/myPetBoard">반려 이야기</a></li>
+              </ul>
+            </div>
+            <div class="header__right">
+              <div class="header__my-page">
+                <a href="/myPage">마이페이지</a>
+              </div>
+              <button class="btn header__login-btn">
+                <% if(locals.isLogined) {%>
+                <a href="/auth/kakao/logout">로그아웃</a>
+                <%} else {%>
+                <a href="/login">로그인</a>
+                <%}%>
+              </button>
+            </div>
+          </div>
+        </nav>
+      </header>
+      <main role="main">
+        <div class="main__container">
+          <div class="main__title">
+            <h1>나의 반려동물 자랑하기</h1>
+          </div>
+          <section class="main-content__section">
+            <!--스크립트 for문을 이용하여 게시물 생성-->
+            <%for(let i = 0; i < locals.posts.length; i++) {%>
+            <article class="main-content__article">
+              <a href="/myPetBoard/<%=locals.posts[i]._id%>">
+                <div class="main-content__wrap">
+                  <div class="main-content__img">
+                    <img
+                      src="https://via.placeholder.com/200x250/B2B2B2/FFFFFF/?text=NO%20Image"
+                      alt=""
+                    />
+                  </div>
+                  <div class="main-content__info">
+                    <p class="main-content__title">
+                      <%=locals.posts[i].title%><!--게시물 제목-->
+                    </p>
+                    <span class="main-content__author"
+                      ><%=locals.posts[i].author.nickname%></span
+                    ><!--작성자-->
+                    <div class="main-content__cnt">
+                      <!--조회수-->
+                      <span> <%=locals.posts[i].views%> </span>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </article>
+            <%}%>
+          </section>
+        </div>
+      </main>
+      <!--페이지네이션 숫자 영역. 임시로 생성-->
+      <div style="text-align: center">
+        <% for(let i = 1; i <= locals.totalPage; i++) { %>
+        <a href="/myPetBoard?page=<%=i%>&perPage=<%=locals.perPage%>">
+          <% if(i==locals.page) {%>
+          <b><%= i%></b>
+          <%} else {%> <%= i%> <%}%>
+        </a>
+        <%}%>
+      </div>
+    </div>
+    <!--<script src="/js/myPetBoard.js"></script>-->
+  </body>
+</html>

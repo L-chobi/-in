@@ -1,0 +1,42 @@
+/* global setting */
+:root {
+  --main-color-orange: #ff9933;
+  --btn-hover-color: #e07e1c;
+  --border-gray: 1px solid #ddd;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.btn {
+  width: 100px;
+  height: 40px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: var(--main-color-orange);
+  color: #fff;
+}
+
+.btn:hover {
+  background-color: var(--btn-hover-color);
+}

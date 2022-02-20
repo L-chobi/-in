@@ -1,0 +1,124 @@
+/* myPage */
+#myPage {
+  width: 100%;
+  position: relative;
+  top: 10em;
+}
+
+.myPage__title {
+  font-size: 1.4em;
+  margin-bottom: 1em;
+  text-align: center;
+}
+
+.myPage__select,
+.userInfo {
+  display: flex;
+}
+
+.myPage__select {
+  margin-bottom: 2em;
+}
+
+.myPage__select__category {
+  margin: auto;
+  font-size: 1.1em;
+}
+
+/* userInfo */
+
+#userInfo {
+  position: absolute;
+  height: 1.6em;
+  width: 100%;
+  margin-left: 30em;
+  margin-bottom: 2em;
+  display: block;
+  text-align: left;
+  display: none;
+}
+
+.userInfo__modify {
+  display: flex;
+  height: 1.8em;
+  margin-bottom: 1.5em;
+}
+
+.userInfo__modify__name,
+.userInfo__modify__input {
+  margin-right: 1em;
+}
+
+.userInfo__modify__input {
+  text-align: center;
+}
+.userInfo__modify__name {
+  padding-top: 5px;
+}
+
+#userInfo__modify__btn {
+  height: 100%;
+  width: 5em;
+}
+
+#userInfo__exit {
+  width: 5em;
+  font-size: 1em;
+}
+
+/* 내가 쓴 글 */
+
+#myPosts {
+  display: none;
+}
+
+/* 내가 쓴 댓글 */
+
+#myComments {
+  padding: 1em;
+  /* display: none; */
+  display: flex;
+}
+
+.myComments__list {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+.comments__container {
+  display: block;
+}
+
+.content {
+  display: flex;
+  height: 4em;
+}
+
+.comments {
+  margin: auto;
+}
+
+.content__info {
+  display: block;
+  margin-right: 30em;
+}
+
+#deleteComment {
+  height: 2em;
+  margin-top: 1em;
+}
+
+.content__seperator {
+  position: relative;
+  margin: 16px 0;
+  width: 100%;
+}
+
+.content__seperator__line {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.2);
+  height: 1px;
+  width: 100%;
+  bottom: 0.7em;
+}

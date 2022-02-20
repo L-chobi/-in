@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/style/reset.css" />
+    <link rel="stylesheet" href="/style/index.css" />
+    <link rel="stylesheet" href="/style/login.css" />
+    <title>반려in</title>
+  </head>
+
+  <body>
+    <div id="wrap">
+      <header>
+        <nav>
+          <div class="header">
+            <div class="header__left">
+              <div class="header__logo"><a href="/">반려in</a></div>
+              <ul class="header__menu-list">
+                <li><a href="/lostPets">보호 중입니다</a></li>
+                <li><a href="/myPetBoard">반려 이야기</a></li>
+              </ul>
+            </div>
+            <div class="header__right">
+              <div class="header__my-page">
+                <a href="/myPage">마이페이지</a>
+              </div>
+              <button class="btn header__login-btn">
+                <a href="/login">로그인</a>
+              </button>
+            </div>
+          </div>
+        </nav>
+      </header>
+      <main role="main">
+        <div class="container">
+          <section class="login__section">
+            <div class="login__container">
+              <div class="login__content">
+                <header class="login__header">
+                  <h1>반려in</h1>
+                </header>
+                <div class="login-intro">
+                  따뜻한 손길을 기다리는<br />
+                  동물들을 만나보세요.
+                </div>
+                <div class="login__oauth">
+                  <div class="login__kakao">
+                    <button class="kakao__button login__method">
+                      <div class="login__logo">logo</div>
+                      <div onclick="location.href='/auth/kakao'">
+                        카카오톡으로 시작
+                      </div>
+                    </button>
+                  </div>
+                  <!-- <div class="login__google">
+                                    <button class="google__button login__method">
+                                        <div class="login__logo">logo</div>
+                                        <div>
+                                            구글로 시작
+                                        </div>
+                                    </button>
+                                </div> -->
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
