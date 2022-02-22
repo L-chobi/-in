@@ -1,7 +1,7 @@
 # 반려in
 - 유기된 동물들을 사람들과 이어주는 커뮤니티입니다.
 
-![로고](/uploads/acf9b7273003ff1b36232559cfdd2333/로고)
+![로고](https://user-images.githubusercontent.com/70579655/155113604-dae0e186-c693-4665-bb31-9c4c5458c8d1.png)
 
 ## 프로젝트 구성 안내
 
@@ -29,8 +29,9 @@
   - 주요 기능
   1. 사람들이 자유롭게 소통할 수 있는 반려 게시판
 
-  <img src="/uploads/c0b70a4f3c5e8ec73055bd571b8cab41/commu1.png" width="70%"/>
-  <img src="/uploads/4ec9c34f0a3005a336c13f231d367b91/commu2.jpg" width="70%"/>
+![commu1](https://user-images.githubusercontent.com/70579655/155113711-0354d298-7ef2-4aa2-8c04-79c8b7b4b656.png)
+![commu2](https://user-images.githubusercontent.com/70579655/155113727-eaaa7c02-b32b-4cac-9eac-f2b686ac769b.jpg)
+
 
     - 자신이 입양한 동물들의 사진 등을 공유할 수 있습니다.
     - 찾고자 하는 글이 있다면 작성자, 제목, 내용으로 검색하여 찾을 수 있습니다.
@@ -38,8 +39,8 @@
 
 
   2. 유기동물을 찾아주는 보호 게시판
-  <img src="/uploads/106e1c126fe0976ecca9e5c40888677f/protect1.jpg" width="70%"/>
-  <img src="/uploads/7aa338a18680dc64d39e1f05a45b9429/protect2.jpg" width="70%"/>
+![protect1](https://user-images.githubusercontent.com/70579655/155113791-f52d0c23-eb13-456f-91fb-badc8c29f900.jpg)
+![protect2](https://user-images.githubusercontent.com/70579655/155113799-1253e5ea-d469-4506-81d8-dde203a06e96.jpg)
 
     - 공공데이터 API를 활용하여 데이터에 등록된 유기동물들의 정보를 찾아줍니다.
     - 조건별로 검색하여 원하는 조건의 동물들을 찾을 수 있습니다.
@@ -47,17 +48,17 @@
 
   - 서브 기능
   1. 메인 페이지
-  <img src="/uploads/4d317538d8cb2378cff1cf28be5d3ec8/main1.png" width="70%"/>
-  <img src="/uploads/0b421193655ed8b87fbcf3f67319bd69/main2.png" width="70%"/>
-  <img src="/uploads/7300ba1d6c626f3176a375f1ab6cb500/main3.png" width="70%"/>  
+  <![main1](https://user-images.githubusercontent.com/70579655/155113824-57b87e5b-9662-4a80-addc-70d712b1c191.png)
+  ![main2](https://user-images.githubusercontent.com/70579655/155113838-b26f9796-3c18-402e-80f7-92792f541f86.png)
+  ![main3](https://user-images.githubusercontent.com/70579655/155113846-e1b1b8f4-9425-442a-a19e-d693b877c97f.png)
 
     - 처음 접속했을 때 보게 되는 메인 페이지입니다. 
     - 간단한 유기동물 통계(어제부터 오늘까지 신고된 수)와 각 게시판의 게시물 미리보기로 최근 6건의 게시물을 확인할 수 있습니다.
 
 
   2. 마이 페이지
-  <img src="/uploads/90c0eaad4c2554851072ce00c365081e/mypage1.png" width="70%"/>
-  <img src="/uploads/528d1fb9b4f351172bff41f34fff7157/mypage2.png" width="70%"/>
+  ![mypage1](https://user-images.githubusercontent.com/70579655/155113887-6e2ec080-ba32-4415-b029-54a1e99d7a75.png)
+  ![mypage2](https://user-images.githubusercontent.com/70579655/155113893-c0d2d265-2516-404f-b0de-6fa33df7cd9f.png)
 
     - 사용자 편의 관련 페이지입니다. 기존 카카오 프로필에서 가져온 닉네임을 원하는 대로 변경할 수 있습니다.
     - 자신이 쓴 글이나 댓글을 바로 확인할 수 있습니다. 클릭시 해당 게시물로 이동하며, 댓글의 경우 옆에 있는 삭제 버튼 클릭시 바로 삭제됩니다.
